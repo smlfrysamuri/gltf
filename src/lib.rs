@@ -79,9 +79,6 @@
 //! [`Node`]: struct.Node.html
 //! [`Scene`]: struct.Scene.html
 
-#[cfg(test)]
-#[macro_use]
-extern crate approx;
 #[cfg(feature = "import")]
 extern crate image as image_crate;
 
@@ -185,6 +182,7 @@ pub use self::texture::Texture;
 use std::path::Path;
 use std::{fs, io, ops, result};
 
+#[allow(dead_code)]
 pub(crate) trait Normalize<T> {
     fn normalize(self) -> T;
 }
