@@ -222,7 +222,7 @@ The top-level `gltf` crate adheres to [Semantic Versioning](http://semver.org/sp
   - cgmath
   - image
   - lazy_static
-  - proc_macro2
+  - proc_macro
   - quote
   - syn
 
