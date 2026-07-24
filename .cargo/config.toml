@@ -1,0 +1,31 @@
+[unstable]
+feature-unification = true
+
+[alias]
+cleanpkg = ["clean", "-p", "gltf"]
+build16 = "build --profile release --jobs 16"
+build24 = "build --profile release --jobs 24"
+
+[build]
+incremental = false
+target-dir = 'X:\Escamote\global-target'
+rustc-wrapper = "sccache"
+rustflags = [
+    "-Z",
+    "share-generics=yes",
+    "-C",
+    "linker=rust-lld.exe",
+    "-C",
+    "link-arg=/INCREMENTAL:NO",
+    "-C",
+    "target-cpu=native"
+]
+
+[net]
+git-fetch-with-cli = true
+
+[registries.crates-io]
+protocol = "sparse"
+
+[resolver]
+feature-unification = "workspace"
