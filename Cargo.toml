@@ -61,22 +61,6 @@ KHR_animation_pointer = ["gltf-json/KHR_animation_pointer", "allow_empty_animati
 EXT_texture_webp = ["gltf-json/EXT_texture_webp", "image/webp"]
 guess_mime_type = []
 
-[[example]]
-name = "gltf-display"
-path = "examples/display/main.rs"
-
-[[example]]
-name = "gltf-export"
-path = "examples/export/main.rs"
-
-[[example]]
-name = "gltf-roundtrip"
-path = "examples/roundtrip/main.rs"
-
-[[example]]
-name = "gltf-tree"
-path = "examples/tree/main.rs"
-
 [package.metadata.docs.rs]
 all-features = true
 rustdoc-args = ["--cfg", "docsrs"]
