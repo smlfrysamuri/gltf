@@ -283,8 +283,8 @@ impl<'a> Scene<'a> {
 
 #[cfg(test)]
 mod tests {
-    use crate::math::*;
     use crate::scene::Transform;
+    use bootstrap_ecs_math::*;
     use std::f32::consts::PI;
 
     fn rotate(x: f32, y: f32, z: f32, r: f32) -> [f32; 4] {
