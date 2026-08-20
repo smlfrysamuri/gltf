@@ -374,7 +374,7 @@ where
                         .map(ReadColors::RgbaU16),
                     (F32, Vec4) => accessor::Iter::new(accessor, self.get_buffer_data.clone())
                         .map(ReadColors::RgbaF32),
-                    RoutineDispatch::Empty(_) => unreachable!(),
+                    _ => unimplemented!(),
                 },
             )
     }
@@ -393,7 +393,7 @@ where
                     .map(ReadIndices::U16),
                 DataType::U32 => accessor::Iter::new(accessor, self.get_buffer_data.clone())
                     .map(ReadIndices::U32),
-                RoutineDispatch::Empty(_) => unreachable!(),
+                _ => unimplemented!(),
             })
     }
 
@@ -410,7 +410,7 @@ where
                 DataType::U16 => {
                     accessor::Iter::new(accessor, self.get_buffer_data.clone()).map(ReadJoints::U16)
                 }
-                RoutineDispatch::Empty(_) => unreachable!(),
+                _ => unimplemented!(),
             })
     }
 
@@ -427,7 +427,7 @@ where
                     .map(ReadTexCoords::U16),
                 DataType::F32 => accessor::Iter::new(accessor, self.get_buffer_data.clone())
                     .map(ReadTexCoords::F32),
-                RoutineDispatch::Empty(_) => unreachable!(),
+                _ => unimplemented!(),
             })
     }
 
@@ -445,7 +445,7 @@ where
                     .map(ReadWeights::U16),
                 DataType::F32 => accessor::Iter::new(accessor, self.get_buffer_data.clone())
                     .map(ReadWeights::F32),
-                RoutineDispatch::Empty(_) => unreachable!(),
+                _ => unimplemented!(),
             })
     }
 

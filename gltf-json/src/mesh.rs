@@ -332,6 +332,7 @@ impl ser::Serialize for Semantic {
     }
 }
 
+#[allow(clippy::to_string_trait_impl)]
 impl ToString for Semantic {
     fn to_string(&self) -> String {
         use self::Semantic::*;
@@ -349,6 +350,7 @@ impl ToString for Semantic {
     }
 }
 
+#[allow(clippy::to_string_trait_impl)]
 impl ToString for Checked<Semantic> {
     fn to_string(&self) -> String {
         match *self {

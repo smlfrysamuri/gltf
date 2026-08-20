@@ -188,10 +188,10 @@ impl<'a> Iterator for Accessors<'a> {
     fn count(self) -> usize {
         self.iter.count()
     }
-    fn last(self) -> Option<Self::Item> {
+    fn last(mut self) -> Option<Self::Item> {
         let document = self.document;
         self.iter
-            .last()
+            .next_back()
             .map(|(index, json)| Accessor::new(document, index, json))
     }
     fn nth(&mut self, n: usize) -> Option<Self::Item> {
@@ -215,10 +215,10 @@ impl<'a> Iterator for Animations<'a> {
     fn count(self) -> usize {
         self.iter.count()
     }
-    fn last(self) -> Option<Self::Item> {
+    fn last(mut self) -> Option<Self::Item> {
         let document = self.document;
         self.iter
-            .last()
+            .next_back()
             .map(|(index, json)| Animation::new(document, index, json))
     }
     fn nth(&mut self, n: usize) -> Option<Self::Item> {
@@ -242,10 +242,10 @@ impl<'a> Iterator for Buffers<'a> {
     fn count(self) -> usize {
         self.iter.count()
     }
-    fn last(self) -> Option<Self::Item> {
+    fn last(mut self) -> Option<Self::Item> {
         let document = self.document;
         self.iter
-            .last()
+            .next_back()
             .map(|(index, json)| Buffer::new(document, index, json))
     }
     fn nth(&mut self, n: usize) -> Option<Self::Item> {
@@ -309,10 +309,10 @@ impl<'a> Iterator for Views<'a> {
     fn count(self) -> usize {
         self.iter.count()
     }
-    fn last(self) -> Option<Self::Item> {
+    fn last(mut self) -> Option<Self::Item> {
         let document = self.document;
         self.iter
-            .last()
+            .next_back()
             .map(|(index, json)| View::new(document, index, json))
     }
     fn nth(&mut self, n: usize) -> Option<Self::Item> {
@@ -336,10 +336,10 @@ impl<'a> Iterator for Cameras<'a> {
     fn count(self) -> usize {
         self.iter.count()
     }
-    fn last(self) -> Option<Self::Item> {
+    fn last(mut self) -> Option<Self::Item> {
         let document = self.document;
         self.iter
-            .last()
+            .next_back()
             .map(|(index, json)| Camera::new(document, index, json))
     }
     fn nth(&mut self, n: usize) -> Option<Self::Item> {
@@ -363,10 +363,10 @@ impl<'a> Iterator for Images<'a> {
     fn count(self) -> usize {
         self.iter.count()
     }
-    fn last(self) -> Option<Self::Item> {
+    fn last(mut self) -> Option<Self::Item> {
         let document = self.document;
         self.iter
-            .last()
+            .next_back()
             .map(|(index, json)| Image::new(document, index, json))
     }
     fn nth(&mut self, n: usize) -> Option<Self::Item> {
@@ -393,10 +393,10 @@ impl<'a> Iterator for Lights<'a> {
     fn count(self) -> usize {
         self.iter.count()
     }
-    fn last(self) -> Option<Self::Item> {
+    fn last(mut self) -> Option<Self::Item> {
         let document = self.document;
         self.iter
-            .last()
+            .next_back()
             .map(|(index, json)| crate::khr_lights_punctual::Light::new(document, index, json))
     }
     fn nth(&mut self, n: usize) -> Option<Self::Item> {
@@ -423,10 +423,10 @@ impl<'a> Iterator for Variants<'a> {
     fn count(self) -> usize {
         self.iter.count()
     }
-    fn last(self) -> Option<Self::Item> {
+    fn last(mut self) -> Option<Self::Item> {
         let document = self.document;
         self.iter
-            .last()
+            .next_back()
             .map(|(index, json)| crate::khr_materials_variants::Variant::new(document, index, json))
     }
     fn nth(&mut self, n: usize) -> Option<Self::Item> {
@@ -450,10 +450,10 @@ impl<'a> Iterator for Materials<'a> {
     fn count(self) -> usize {
         self.iter.count()
     }
-    fn last(self) -> Option<Self::Item> {
+    fn last(mut self) -> Option<Self::Item> {
         let document = self.document;
         self.iter
-            .last()
+            .next_back()
             .map(|(index, json)| Material::new(document, index, json))
     }
     fn nth(&mut self, n: usize) -> Option<Self::Item> {
@@ -477,10 +477,10 @@ impl<'a> Iterator for Meshes<'a> {
     fn count(self) -> usize {
         self.iter.count()
     }
-    fn last(self) -> Option<Self::Item> {
+    fn last(mut self) -> Option<Self::Item> {
         let document = self.document;
         self.iter
-            .last()
+            .next_back()
             .map(|(index, json)| Mesh::new(document, index, json))
     }
     fn nth(&mut self, n: usize) -> Option<Self::Item> {
@@ -504,10 +504,10 @@ impl<'a> Iterator for Nodes<'a> {
     fn count(self) -> usize {
         self.iter.count()
     }
-    fn last(self) -> Option<Self::Item> {
+    fn last(mut self) -> Option<Self::Item> {
         let document = self.document;
         self.iter
-            .last()
+            .next_back()
             .map(|(index, json)| Node::new(document, index, json))
     }
     fn nth(&mut self, n: usize) -> Option<Self::Item> {
@@ -531,10 +531,10 @@ impl<'a> Iterator for Samplers<'a> {
     fn count(self) -> usize {
         self.iter.count()
     }
-    fn last(self) -> Option<Self::Item> {
+    fn last(mut self) -> Option<Self::Item> {
         let document = self.document;
         self.iter
-            .last()
+            .next_back()
             .map(|(index, json)| Sampler::new(document, index, json))
     }
     fn nth(&mut self, n: usize) -> Option<Self::Item> {
@@ -558,10 +558,10 @@ impl<'a> Iterator for Scenes<'a> {
     fn count(self) -> usize {
         self.iter.count()
     }
-    fn last(self) -> Option<Self::Item> {
+    fn last(mut self) -> Option<Self::Item> {
         let document = self.document;
         self.iter
-            .last()
+            .next_back()
             .map(|(index, json)| Scene::new(document, index, json))
     }
     fn nth(&mut self, n: usize) -> Option<Self::Item> {
@@ -585,10 +585,10 @@ impl<'a> Iterator for Skins<'a> {
     fn count(self) -> usize {
         self.iter.count()
     }
-    fn last(self) -> Option<Self::Item> {
+    fn last(mut self) -> Option<Self::Item> {
         let document = self.document;
         self.iter
-            .last()
+            .next_back()
             .map(|(index, json)| Skin::new(document, index, json))
     }
     fn nth(&mut self, n: usize) -> Option<Self::Item> {
@@ -612,10 +612,10 @@ impl<'a> Iterator for Textures<'a> {
     fn count(self) -> usize {
         self.iter.count()
     }
-    fn last(self) -> Option<Self::Item> {
+    fn last(mut self) -> Option<Self::Item> {
         let document = self.document;
         self.iter
-            .last()
+            .next_back()
             .map(|(index, json)| Texture::new(document, index, json))
     }
     fn nth(&mut self, n: usize) -> Option<Self::Item> {

@@ -35,10 +35,10 @@ impl<'a> Iterator for Channels<'a> {
     fn count(self) -> usize {
         self.iter.count()
     }
-    fn last(self) -> Option<Self::Item> {
+    fn last(mut self) -> Option<Self::Item> {
         let anim = self.anim;
         self.iter
-            .last()
+            .next_back()
             .map(|(index, json)| Channel::new(anim, json, index))
     }
     fn nth(&mut self, n: usize) -> Option<Self::Item> {
@@ -61,10 +61,10 @@ impl<'a> Iterator for Samplers<'a> {
     fn count(self) -> usize {
         self.iter.count()
     }
-    fn last(self) -> Option<Self::Item> {
+    fn last(mut self) -> Option<Self::Item> {
         let anim = self.anim;
         self.iter
-            .last()
+            .next_back()
             .map(|(index, json)| Sampler::new(anim, json, index))
     }
     fn nth(&mut self, n: usize) -> Option<Self::Item> {

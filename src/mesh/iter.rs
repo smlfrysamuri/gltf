@@ -71,10 +71,10 @@ impl<'a> Iterator for Primitives<'a> {
     fn count(self) -> usize {
         self.iter.count()
     }
-    fn last(self) -> Option<Self::Item> {
+    fn last(mut self) -> Option<Self::Item> {
         let mesh = self.mesh;
         self.iter
-            .last()
+            .next_back()
             .map(|(index, json)| Primitive::new(mesh, index, json))
     }
     fn nth(&mut self, n: usize) -> Option<Self::Item> {

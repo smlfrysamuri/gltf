@@ -132,7 +132,7 @@ impl<'a, T: Item> SparseIter<'a, T> {
             base,
             base_count,
             indices: indices.peekable(),
-            values: values,
+            values,
             counter: 0,
         }
     }

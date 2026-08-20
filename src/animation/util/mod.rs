@@ -165,7 +165,7 @@ where
                     .map(|x| ReadOutputs::Rotations(Rotations::U16(x))),
                 DataType::F32 => Iter::new(output, self.get_buffer_data.clone())
                     .map(|x| ReadOutputs::Rotations(Rotations::F32(x))),
-                RoutineDispatch::Empty(_) => unreachable!(),
+                DataType::U32 => unimplemented!(),
             },
             Property::Scale => {
                 Iter::new(output, self.get_buffer_data.clone()).map(ReadOutputs::Scales)
@@ -181,7 +181,7 @@ where
                     .map(|x| ReadOutputs::MorphTargetWeights(MorphTargetWeights::U16(x))),
                 DataType::F32 => Iter::new(output, self.get_buffer_data.clone())
                     .map(|x| ReadOutputs::MorphTargetWeights(MorphTargetWeights::F32(x))),
-                RoutineDispatch::Empty(_) => unreachable!(),
+                DataType::U32 => unimplemented!(),
             },
             Property::Pointer => {
                 // Pointer-based channels target arbitrary properties whose data

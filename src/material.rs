@@ -181,7 +181,7 @@ impl<'a> Material<'a> {
     /// [`KHR_materials_clearcoat`](https://github.com/KhronosGroup/glTF/blob/main/extensions/2.0/Khronos/KHR_materials_clearcoat/README.md)
     #[cfg(feature = "KHR_materials_clearcoat")]
     #[cfg_attr(docsrs, doc(cfg(feature = "KHR_materials_clearcoat")))]
-    pub fn clearcoat(&self) -> Option<Clearcoat> {
+    pub fn clearcoat(&self) -> Option<Clearcoat<'_>> {
         self.json
             .extensions
             .as_ref()?
@@ -195,7 +195,7 @@ impl<'a> Material<'a> {
     /// [`KHR_materials_sheen`](https://github.com/KhronosGroup/glTF/blob/main/extensions/2.0/Khronos/KHR_materials_sheen/README.md)
     #[cfg(feature = "KHR_materials_sheen")]
     #[cfg_attr(docsrs, doc(cfg(feature = "KHR_materials_sheen")))]
-    pub fn sheen(&self) -> Option<Sheen> {
+    pub fn sheen(&self) -> Option<Sheen<'_>> {
         self.json
             .extensions
             .as_ref()?
@@ -802,7 +802,7 @@ impl<'a> Clearcoat<'a> {
     }
 
     /// Returns the clearcoat normal map texture.
-    pub fn clearcoat_normal_texture(&self) -> Option<NormalTexture> {
+    pub fn clearcoat_normal_texture(&self) -> Option<NormalTexture<'_>> {
         self.json.clearcoat_normal_texture.as_ref().map(|json| {
             let texture = self.document.textures().nth(json.index.value()).unwrap();
             NormalTexture::new(texture, json)
