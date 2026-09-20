@@ -14,4 +14,4 @@ proc-macro = true
 inflections = "=1.1.1"
 proc-macro2 = "=1.0.107"
 quote = "=1.0.47"
-syn = { version = "=3.0.5", default-features = false, features = ["clone-impls", "derive", "full", "parsing", "printing", "proc-macro"] }
+syn = { version = "=3.0.6", default-features = false, features = ["clone-impls", "derive", "full", "parsing", "printing", "proc-macro"] }
